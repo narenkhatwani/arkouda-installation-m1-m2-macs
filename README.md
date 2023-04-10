@@ -1,4 +1,4 @@
-#Installation Steps
+# Installation Steps
 
 In order to build arkouda and arkouda-njit on M1/M2 Macbooks you need to follow the steps given below:
 
