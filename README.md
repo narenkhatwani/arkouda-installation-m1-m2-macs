@@ -1,3 +1,5 @@
+#Installation Steps
+
 In order to build arkouda and arkouda-njit on M1/M2 Macbooks you need to follow the steps given below:
 
 1. Install Anaconda Navigator. Ensure it is pointed to in your `PATH`
