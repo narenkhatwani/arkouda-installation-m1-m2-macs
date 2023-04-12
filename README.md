@@ -62,3 +62,7 @@ ln -s /Users/narenkhatwani/Desktop/arkouda-4/arkouda-njit arkouda_njit
 13. 
 
 ## Some errors that I faced, what the issue was, and how did I resolve them
+
+## Running arkouda-contrib
+
+In order to build arkouda-contrib on M1/M2 Macbooks you need to follow the steps given below:
