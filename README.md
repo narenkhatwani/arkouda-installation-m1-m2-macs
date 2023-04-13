@@ -66,3 +66,22 @@ ln -s /Users/narenkhatwani/Desktop/arkouda-4/arkouda-njit arkouda_njit
 ## Running arkouda-contrib
 
 In order to build arkouda-contrib on M1/M2 Macbooks you need to follow the steps given below:
+
+1. Head to the arkouda-contrib directory on your machine
+2. Run the following command
+
+```bash
+python3 module_configuration.py --ak_loc=/complete/path/to/arkouda/ --pkg_path=/complete/path/to/arkouda-
+contrib/arkouda_distance_wserver/
+```
+
+1. The output after running the above command the output will be a command which you need to run next, the command starts with the phrase `cp`
+
+DO NOT RUN THE COMMAND BELOW, ITS JUST AN EXAMPLE
+
+Example:
+
+```bash
+cp /complete/path/to/arkouda/ServerModules.cfg ~/TmpServerModules.cfg.1660849671
+ARKOUDA_SERVER_USER_MODULES=" /complete/path/to/arkouda-contrib/arkouda_distance_wserver/server/DistanceCalcMsg.chpl" ARKOUDA_CONFIG_FILE=~/TmpServerModules.cfg.1660849671 ARKOUDA_SKIP_CHECK_DEPS=true make -C /complete/path/to/arkouda
+```
