@@ -62,7 +62,56 @@ ln -s /Users/narenkhatwani/Desktop/arkouda-4/arkouda-njit arkouda_njit
 13. Head to the arkouda directory and run `./arkouda_server nl -1` in the terminal
 
 ## Some errors that I faced, what the issue was, and how did I resolve them
+### Error 1:
 
+```bash
+src/tcp_address.cpp:132:12: error: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Werror,-Wdeprecated-declarations]
+    pos += sprintf (pos, "%d", ntohs (port_));
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+1 error generated.
+make[2]: *** [src/libzmq_la-tcp_address.lo] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [install-zmq] Error 2
+```
+
+Resolution:
+
+The Makefile.paths file had an incorrect PATH pointing towards the arkouda development environment
+
+### Error 2:
+
+```bash
+(base) narenkhatwani@Narens-MacBook-Pro:~/Desktop/arkouda-4/chapel-1.30.0 » chpl $CHPL_HOME/examples/hello4-datapar-dist.chpl --fast
+ld: unsupported tapi file type '!tapi-tbd' in YAML file '/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/lib/libpthread.tbd' for architecture arm64
+clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+error: Make Binary - Linking
+```
+
+Resolution:
+
+You have the wrong Anaconda Graphic Installer, please download the specific Graphic Installer for arm64/M1/M2 specific version.
+
+### Error 3:
+
+```bash
+In file included from /var/folders/z0/3x2n2w256hqc2mg2n4y7_0t00000gn/T//chpl-narenkhatwani.deleteme-OUxyuE/_main.c:2:
+In file included from /var/folders/z0/3x2n2w256hqc2mg2n4y7_0t00000gn/T//chpl-narenkhatwani.deleteme-OUxyuE/chpl__header.h:13:
+/Users/narenkhatwani/Desktop/arkouda-2/chapel-1.29.0/modules/standard/GMPHelper/chplgmp.h:27:10: fatal error: 'gmp.h' file not found
+#include <gmp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [/var/folders/z0/3x2n2w256hqc2mg2n4y7_0t00000gn/T//chpl-narenkhatwani.deleteme-OUxyuE/_main.o] Error 1
+error: compiling generated source
+make: *** [arkouda_server] Error 1
+```
+
+Resolution:
 ## Running arkouda-contrib
 
 In order to build arkouda-contrib on M1/M2 Macbooks you need to follow the steps given below:
