@@ -59,7 +59,7 @@ export CHPL_GMP=system
 ```bash
 ln -s /Users/narenkhatwani/Desktop/arkouda-4/arkouda-njit arkouda_njit
 ```
-13. 
+13. Head to the arkouda directory and run `./arkouda_server nl -1` in the terminal
 
 ## Some errors that I faced, what the issue was, and how did I resolve them
 
